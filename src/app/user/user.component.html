@@ -1,15 +1,39 @@
-<div class="example-container">
-    <mat-form-field hintLabel="Max 10 characters">
-      <mat-label>Enter some input</mat-label>
-      <input matInput #input maxlength="10" placeholder="Ex. Nougat">
-      <mat-hint align="end">{{input.value.length}}/10</mat-hint>
-    </mat-form-field>
-    <mat-form-field hintLabel="Max 10 characters">
-        <mat-label>Enter some input</mat-label>
-        <input matInput #input maxlength="10" placeholder="Ex. Nougat">
-        <mat-hint align="end">{{input.value.length}}/10</mat-hint>
-      </mat-form-field>
+<p>user</p>
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <img id="image" class="mx-auto h-10 w-auto cursor-pointer" (click)="toDashboard()" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+      <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Add user</h2>
+    </div>
+  
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <form id="userForm" class="space-y-6" [formGroup]="addUser" (ngSubmit)="onSubmit()">
+
+        <div>
+            <div class="flex items-center justify-between">
+              <label for="user-name" class="block text-sm font-medium leading-6 text-gray-900">User Name</label>
+            </div>
+            <div class="mt-2">
+              <input id="user-name" name="user-name" type="text" formControlName="name"
+               class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+        <div>
+          <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+          <div class="mt-2">
+            <input id="email" name="email" type="email" autocomplete="email" formControlName="email"
+             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+        
+        </div>
+  
+        <div>
+          <button id="addUser" type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add user</button>
+        </div>
+      </form>
+  
+    </div>
   </div>
+  
   
 
       

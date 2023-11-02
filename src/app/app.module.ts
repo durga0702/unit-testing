@@ -8,12 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
-import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card'; 
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,15 +23,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatInputModule,
-    MatIconModule,
-    MatFormFieldModule
     
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  public title = 'UNIT TESTING';
+}
