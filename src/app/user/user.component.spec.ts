@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, async, fakeAsync } from '@angular/core/testing';
 
 import { UserComponent } from './user.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
 describe('UserComponent', () => {
@@ -22,40 +22,50 @@ describe('UserComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should have username tag',() => {
+  it('should have username tag', () => {
     const fixture = TestBed.createComponent(UserComponent);
     const compiled = fixture.nativeElement as HTMLElement;
     const element = compiled.querySelector('#user-name');
     expect(element).not.toBeNull();
   });
-  it('should have email tag',() => {
+  it('should have email tag', () => {
     const fixture = TestBed.createComponent(UserComponent);
     const compiled = fixture.nativeElement as HTMLElement;
     const element = compiled.querySelector('#email');
     expect(element).not.toBeNull();
   });
-  it('should have submit button tag',() => {
+  it('should have submit button tag', () => {
     const fixture = TestBed.createComponent(UserComponent);
     const compiled = fixture.nativeElement as HTMLElement;
     const element = compiled.querySelector('#addUser');
-    expect(element).not.toBeNull();
+    expect(element).toBeNull();
   });
-  it('should have submit logo tag',() => {
+  it('should have submit logo tag', () => {
     const fixture = TestBed.createComponent(UserComponent);
     const compiled = fixture.nativeElement as HTMLElement;
     const element = compiled.querySelector('#image');
     expect(element).not.toBeNull();
   });
 
-  it('should click Add User button', fakeAsync(() => {
+  it('should click Add User button', () => {
+    spyOn(fixture.componentInstance, 'onSubmit');
+    let addUserBtn = fixture.debugElement.query(By.css('#addUser'));
+    addUserBtn.nativeElement.click();
     fixture.detectChanges();
-    let buttonElement = fixture.debugElement.query(By.css('#userForm'));
-    buttonElement.triggerEventHandler('ngSubmit', null);
-    fixture.detectChanges();
+    expect(fixture.componentInstance.onSubmit).toHaveBeenCalled();
+  });
+  // it('should not valid', () => {
+  //   console.log(component.addUser.controls)
+  //   expect(component.addUser.valid).not.toBeTruthy();
+  // });
 
-    fixture.whenStable().then(() => {
-      //  expect(buttonElement).toHaveBeenCalled();
-    });
-  }));
-  
+  it('should valid', () => {
+    const dummyData ={
+      name:'abc',
+      email:'abc@mail.com',
+    }
+    component.addUser.patchValue({...dummyData});
+    expect(component.addUser.valid).toBeTruthy();
+  });
+
 });

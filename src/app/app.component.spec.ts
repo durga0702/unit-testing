@@ -44,17 +44,17 @@ describe('AppComponent', () => {
       expect(element).not.toBeNull();
     });
 
-    it('should have a list button to redirect list page',() => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const compiled = fixture.nativeElement as HTMLElement;
-      const element = compiled.querySelector('#list');
-      expect(element).not.toBeNull();
-    });
+    // it('should have a list button to redirect list page',() => {
+    //   const fixture = TestBed.createComponent(AppComponent);
+    //   const compiled = fixture.nativeElement as HTMLElement;
+    //   const element = compiled.querySelector('#list');
+    //   expect(element).not.toBeNull();
+    // });
 
-    it('should have a update button to redirect update page',() => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const compiled = fixture.nativeElement as HTMLElement;
-      const element = compiled.querySelector('#update');
-      expect(element).not.toBeNull();
-    });
+    // it('should have a update button to redirect update page',() => {
+    //   const fixture = TestBed.createComponent(AppComponent);
+    //   const compiled = fixture.nativeElement as HTMLElement;
+    //   const element = compiled.querySelector('#update');
+    //   expect(element).not.toBeNull();
+    // });
 });

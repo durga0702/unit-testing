@@ -9,7 +9,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatTableModule} from '@angular/material/table'; 
+import {MatIconModule} from '@angular/material/icon'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatTableModule, 
+    MatIconModule,
     
   ],
   providers: [],
