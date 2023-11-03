@@ -11,13 +11,17 @@ import { ListUserComponent } from './list-user/list-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table'; 
 import {MatIconModule} from '@angular/material/icon'; 
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './user/user-service.service';
+import { DemoPipe } from './demo.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     UserDashboardComponent,
     UpdateUserComponent,
-    ListUserComponent
+    ListUserComponent,
+    DemoPipe
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,7 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserAnimationsModule,
     MatTableModule, 
     MatIconModule,
+    HttpClientModule,
     
   ],
   providers: [],

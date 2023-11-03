@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { EmailValidator, FormBuilder,  FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from './user-service.service';
 import { MatTableDataSource } from '@angular/material/table';
 
 export interface PeriodicElement {
@@ -30,10 +29,7 @@ export class UserComponent implements OnInit {
    * 
    */
   constructor(private route: Router,
-    private fb: FormBuilder,
-    private userService: UserService,
-    
-    private cd:ChangeDetectorRef,) { }
+    private fb: FormBuilder,) { }
 
     /**
      * initial loader
