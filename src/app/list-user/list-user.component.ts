@@ -18,7 +18,7 @@ export class ListUserComponent implements OnInit {
   public dataSource:Array<PeriodicElement> = [];
   public data:any =[];
   public count = 0;
-  public singleData = {};
+  public singleData:any = {};
   constructor(private userService: ListUserService,){
     
   }
@@ -47,7 +47,7 @@ this.userService.deleteValue(data);
 
 public getSingleValue(data:any){
   this.userService.getSingleValue(data).subscribe((res:any)=>{
-      this.singleData = res;
+     this.singleData = res;
   })
 }
 

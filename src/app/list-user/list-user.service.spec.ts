@@ -3,13 +3,15 @@ import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { ListUserService } from './list-user.service';
 import { ListUserComponent, PeriodicElement } from './list-user.component';
+import { CommonModule } from '@angular/common';
 
 describe('List Service', () => {
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
-  let listService: ListUserService;
+  let listUserService: ListUserService;
   let dummyData:PeriodicElement[];
   let component: ListUserComponent;
   let mockService: any;
+  
   beforeEach(()=>{
     dummyData = [
         {
@@ -28,7 +30,19 @@ describe('List Service', () => {
           email: 'title 3',
         },
       ];
-      mockService = jasmine.createSpyObj(['getValue','deleteValue'])
+    let httpClientSpyObj = jasmine.createSpyObj('HttpClient', ['get']);
+    TestBed.configureTestingModule({
+      providers: [
+        ListUserService,
+        {
+          provide: HttpClient,
+          useValue: httpClientSpyObj,
+        },
+      ],
+    });
+    listUserService = TestBed.inject(ListUserService);
+    httpClientSpy = TestBed.inject(HttpClient) as jasmine.SpyObj<HttpClient>;
+      mockService = jasmine.createSpyObj(['getValue','deleteValue', 'getSingleValue'])
       component = new ListUserComponent(mockService)
   })
   describe('delete()',()=>{
@@ -55,25 +69,13 @@ describe('List Service', () => {
     })
 
   })
-  beforeEach(() => {
-    let httpClientSpyObj = jasmine.createSpyObj('HttpClient', ['get']);
-    TestBed.configureTestingModule({
-      providers: [
-        ListUserService,
-        {
-          provide: HttpClient,
-          useValue: httpClientSpyObj,
-        },
-      ],
-    });
-    listService = TestBed.inject(ListUserService);
-    httpClientSpy = TestBed.inject(HttpClient) as jasmine.SpyObj<HttpClient>;
-  });
+ 
 
   describe('getValue()', () => {
+  
     it('should return expected datas when getValue() is called', (done: DoneFn) => {
       httpClientSpy.get.and.returnValue(of(dummyData));
-      listService.getValue().subscribe({
+      listUserService.getValue().subscribe({
         next: (res) => {
           expect(res).toEqual(dummyData);
           done();
@@ -87,7 +89,7 @@ describe('List Service', () => {
 
     it('should return expected data when getSingleValue() is called', (done: DoneFn) => {
         httpClientSpy.get.and.returnValue(of(dummyData[1]));
-        listService.getValue().subscribe({
+        listUserService.getSingleValue(dummyData[1]).subscribe({
           next: (res) => {
             expect(res).toEqual(dummyData[1]);
             done();
@@ -98,5 +100,25 @@ describe('List Service', () => {
         });
         expect(httpClientSpy.get).toHaveBeenCalledTimes(1);
       });
+
+    //   it('should render value of selected data', (done: DoneFn) => {
+    //     httpClientSpy.get.and.returnValue(of(dummyData[2]));
+    //     listUserService.getSingleValue(dummyData[2]).subscribe({
+    //       next: (res) => {
+    //         component.singleData = res;
+    //         done();
+    //       },
+    //       error: () => {
+    //         done.fail;
+    //       },
+    //     });
+    // const fixture = TestBed.createComponent(ListUserComponent);
+    // // const template = fixture.componentInstance; 
+    // fixture.detectChanges();
+    // const compiled = fixture.nativeElement as HTMLElement;
+    // expect(compiled.querySelector('#singleDataId')?.textContent).toContain(dummyData[2].id);
+    // expect(compiled.querySelector('#singleDataName')?.textContent).toContain(dummyData[2].name);
+    // expect(compiled.querySelector('#singleDataEmail')?.textContent).toContain(dummyData[2].email);
+    //   });
   });
 });

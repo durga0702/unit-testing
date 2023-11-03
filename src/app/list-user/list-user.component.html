@@ -7,7 +7,7 @@
         <!-- Position Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef> Id</th>
-          <td mat-cell *matCellDef="let element"> <span (click)="getSingleValue(element)">{{element.id}}</span> </td>
+          <td mat-cell *matCellDef="let element"> <span class="cursor-pointer" (click)="getSingleValue(element)">{{element.id}}</span> </td>
         </ng-container>
       
         <!-- Name Column -->
@@ -31,6 +31,11 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+</div>
+<div>
+        <p id="singleDataId">id: {{singleData?.id}}</p>
+        <p id="singleDataName">name: {{singleData?.name}}</p>
+        <p id="singleDataEmail">email: {{singleData?.email}}</p>
 </div>
   
   

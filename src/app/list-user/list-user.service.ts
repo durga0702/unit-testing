@@ -24,13 +24,13 @@ export class ListUserService {
  
   getSingleValue(data: any) {
     return this.http.get<any>(
-      `https://jsonplaceholder.typicode.com/posts/${data?.id}`
+      `https://jsonplaceholder.typicode.com/users/${data?.id}`
     );
   }
 
   deleteValue(data: PeriodicElement) {
     return this.http.delete(
-      `https://jsonplaceholder.typicode.com/post/${data.id}`
+      `https://jsonplaceholder.typicode.com/users/${data.id}`
     );
   }
 
