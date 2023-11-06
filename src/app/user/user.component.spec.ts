@@ -1,9 +1,8 @@
-import { ComponentFixture, TestBed, async, fakeAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserComponent } from './user.component';
-import { ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -20,7 +19,7 @@ describe('UserComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create UserComponent', () => {
     expect(component).toBeTruthy();
   });
   it('should have username tag', () => {
@@ -57,7 +56,7 @@ describe('UserComponent', () => {
   });
   
 // Test Cases for addUser form validation
-  it('should valid', () => {
+  it('should valid User info', () => {
     const dummyData ={
       name:'abc',
       email:'abc@mail.com',
@@ -65,7 +64,7 @@ describe('UserComponent', () => {
     component.addUser.patchValue({...dummyData});
     expect(component.addUser.valid).toBeTruthy();
   });
-  it('should valid', () => {
+  it('should valid User info', () => {
     const dummyData ={
       name:'abc',
       email:'abc@mail.co.in',
@@ -73,7 +72,7 @@ describe('UserComponent', () => {
     component.addUser.patchValue({...dummyData});
     expect(component.addUser.valid).toBeTruthy();
   });
-  it('should not valid', () => {
+  it('should not valid User info', () => {
     const dummyData ={
       name:'',// required value
       email:'abc@mail.co',
@@ -81,7 +80,7 @@ describe('UserComponent', () => {
     component.addUser.patchValue({...dummyData});
     expect(component.addUser.valid).toBeFalsy();
   });
-  it('should not valid', () => {
+  it('should not valid User info', () => {
     const dummyData ={
       name:'abc',
       email:'',//required value
@@ -89,7 +88,7 @@ describe('UserComponent', () => {
     component.addUser.patchValue({...dummyData});
     expect(component.addUser.valid).toBeFalsy();
   });
-  it('should not valid', () => {
+  it('should not valid User info', () => {
     const dummyData ={
       name:'abc',
       email:'abcmail.com',// invalid
@@ -97,7 +96,7 @@ describe('UserComponent', () => {
     component.addUser.patchValue({...dummyData});
     expect(component.addUser.valid).toBeFalsy();
   });
-  it('should not valid', () => {
+  it('should not valid User info', () => {
     const dummyData ={
       name:'abc',
       email:'abc@mail',//invalid
@@ -105,7 +104,7 @@ describe('UserComponent', () => {
     component.addUser.patchValue({...dummyData});
     expect(component.addUser.valid).toBeFalsy();
   });
-  it('should not valid', () => {
+  it('should not valid User info', () => {
     const dummyData ={
       name:'abc',
       email:'abc@m.c',//invalid
@@ -113,7 +112,7 @@ describe('UserComponent', () => {
     component.addUser.patchValue({...dummyData});
     expect(component.addUser.valid).toBeFalsy();
   });
-  it('should not valid', () => {
+  it('should not valid User info', () => {
     const dummyData ={
       name:'abc',
       email:'abc@.co',//invalid

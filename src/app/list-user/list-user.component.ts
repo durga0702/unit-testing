@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user/user-service.service';
-import { HttpClient } from '@angular/common/http';
 import { ListUserService } from './list-user.service';
 
 export interface PeriodicElement {
@@ -29,17 +27,8 @@ export class ListUserComponent implements OnInit {
         this.dataSource = res;
       }
    });
-  //  setInterval(() => {
-  //   this.userService.getAsyncValue().subscribe((res)=>{
-  //     if(res){
-  //       this.count = this.count+1;
-  //       this.data.push({ id:this.count,name:res.city, email:res.region })
-  //       this.dataSource = [...this.data];
-  //       console.log(this.dataSource)
-  //     }
-  //   })
-  //  }, 1000);
   }
+
 public onRemove(data:any){
 this.dataSource = this.dataSource.filter((d: any)=>d.id !== data.id);
 this.userService.deleteValue(data);

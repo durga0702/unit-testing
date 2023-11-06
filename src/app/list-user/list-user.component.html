@@ -32,10 +32,10 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
 </div>
-<div>
-        <p id="singleDataId">id: {{singleData?.id}}</p>
-        <p id="singleDataName">name: {{singleData?.name}}</p>
-        <p id="singleDataEmail">email: {{singleData?.email}}</p>
+<div *ngIf="singleData?.id">
+        Id: <p id="singleDataId">{{singleData?.id}}</p>
+        Name: <p id="singleDataName">{{singleData?.name}}</p>
+        Email: <p id="singleDataEmail">{{singleData?.email}}</p>
 </div>
   
   
