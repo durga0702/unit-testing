@@ -11,9 +11,7 @@ describe('List Service', () => {
   let dummyData:PeriodicElement[];
   let component: ListUserComponent;
   let mockService: any;
-  
-  beforeEach(()=>{
-    dummyData = [
+  dummyData = [
         {
           id: 1,
           name: 'body 1',
@@ -30,6 +28,8 @@ describe('List Service', () => {
           email: 'title 3',
         },
       ];
+  beforeEach(()=>{
+    //spy on other methods
     let httpClientSpyObj = jasmine.createSpyObj('HttpClient', ['get']);
     TestBed.configureTestingModule({
       providers: [
@@ -42,8 +42,9 @@ describe('List Service', () => {
     });
     listUserService = TestBed.inject(ListUserService);
     httpClientSpy = TestBed.inject(HttpClient) as jasmine.SpyObj<HttpClient>;
-      mockService = jasmine.createSpyObj(['getValue','deleteValue', 'getSingleValue'])
-      component = new ListUserComponent(mockService)
+    //spy on functons
+    mockService = jasmine.createSpyObj(['getValue','deleteValue', 'getSingleValue'])
+    component = new ListUserComponent(mockService)
   })
   describe('delete()',()=>{
     beforeEach(()=>{
