@@ -3,9 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { RouterOutlet } from '@angular/router';
 import { By } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { UserService } from './user/user-service.service';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
