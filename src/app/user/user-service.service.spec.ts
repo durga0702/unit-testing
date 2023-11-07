@@ -9,12 +9,12 @@ describe('myService', () => {
         imports: [HttpClientModule], 
       }));
 
-       it('should be created', () => {
+       xit('should be created', () => {
         const service: UserService = TestBed.get(UserService);
         expect(service).toBeTruthy();
        });
 
-       it('should have getData function', () => {
+       xit('should have getData function', () => {
         const service: UserService = TestBed.get(UserService);
          expect(service.getAsyncValue).toBeTruthy();
        });

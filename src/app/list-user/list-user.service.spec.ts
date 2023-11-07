@@ -61,6 +61,7 @@ describe('List User Service', () => {
     })
     it('should delete actual selected data', () => {
       // component.dataSource = dummyData;
+      // spyOn(window, 'deleteValue').and.stub();
       component.onRemove(dummyData[1]);
       for (let data of component.dataSource) {
         expect(data).not.toEqual(dummyData[1]);
