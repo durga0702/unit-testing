@@ -14,6 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user/user-service.service';
 import { DemoPipe } from './demo.pipe';
+import { AppSocketComponent } from './app-socket/app-socket.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { DemoPipe } from './demo.pipe';
     UserDashboardComponent,
     UpdateUserComponent,
     ListUserComponent,
-    DemoPipe
+    DemoPipe,
+    AppSocketComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,7 @@ import { DemoPipe } from './demo.pipe';
     MatTableModule, 
     MatIconModule,
     HttpClientModule,
-    
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
